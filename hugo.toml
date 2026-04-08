@@ -1,6 +1,7 @@
-baseURL = "https://fuselang.github.io/fuselang-site/"
+baseURL = "https://fuselang.org/"
 languageCode = "en-us"
 title = "Fuse Programming Language"
+relativeURLs = true
 
 [params]
   description = "A statically-typed functional language that compiles to native code through GRIN and LLVM."
