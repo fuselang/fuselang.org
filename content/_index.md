@@ -1,5 +1,6 @@
 ---
 title: "Fuse Programming Language"
+description: "A statically-typed functional language that compiles to native code through GRIN and LLVM."
 ---
 
 {{< fuse >}}
