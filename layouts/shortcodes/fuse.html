@@ -1,0 +1,8 @@
+{{- $code := trim .Inner "\n" -}}
+{{- $hash := md5 $code -}}
+{{- $hl := index hugo.Data.highlights $hash -}}
+{{- if $hl -}}
+<div class="fuse-code"><pre><code>{{ $hl | safeHTML }}</code></pre></div>
+{{- else -}}
+<div class="fuse-code"><pre><code>{{ $code | htmlEscape }}</code></pre></div>
+{{- end -}}

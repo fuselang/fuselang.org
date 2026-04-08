@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "scripts": {
+    "highlight": "node scripts/highlight.js",
+    "build": "node scripts/highlight.js && hugo --minify",
+    "dev": "node scripts/highlight.js && hugo server"
+  },
+  "dependencies": {
+    "tree-sitter": "^0.25.0",
+    "tree-sitter-fuse": "github:fuselang/tree-sitter-fuse"
+  }
+}

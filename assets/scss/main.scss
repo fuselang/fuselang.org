@@ -1,0 +1,122 @@
+@import "variables";
+@import "header";
+@import "hero";
+@import "features";
+@import "install";
+@import "code";
+@import "book";
+
+// Reset & base
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  font-family: $font-body;
+  color: $color-text;
+  background: $color-bg;
+}
+
+a {
+  color: $color-link;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Standalone page content
+.page-content {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $color-text;
+    margin: 0 0 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: $color-text;
+    margin: 2.5rem 0 0.75rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: $color-text;
+    margin: 0 0 1rem;
+  }
+
+  ul, ol {
+    margin: 0 0 1rem;
+    padding-left: 1.5rem;
+
+    li {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 0.25rem;
+    }
+  }
+
+  pre {
+    background: $color-code-bg;
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    overflow-x: auto;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin: 1rem 0;
+
+    code {
+      font-family: $font-mono;
+      color: $color-code-text;
+    }
+  }
+
+  code {
+    font-family: $font-mono;
+    font-size: 0.85em;
+    background: rgba(0, 0, 0, 0.06);
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+  }
+
+  pre code {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  strong {
+    font-weight: 600;
+  }
+}
+
+// Footer
+.site-footer {
+  border-top: 1px solid $color-border;
+  padding: 2rem 1.5rem;
+  text-align: center;
+
+  .footer-inner {
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+
+  .footer-copy {
+    font-size: 0.85rem;
+    color: $color-text-secondary;
+  }
+}

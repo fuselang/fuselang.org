@@ -1,0 +1,61 @@
+.install {
+  background: $color-text;
+  color: #e0e0e0;
+  padding: 4rem 1.5rem;
+  text-align: center;
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 0.5rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0 0 1.5rem;
+  }
+
+  .install-command-wrapper {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .install-command {
+    padding: 0.9rem 1rem 0.9rem 1.5rem;
+    font-family: $font-mono;
+    font-size: 0.9rem;
+    color: #e0e0e0;
+    user-select: all;
+    cursor: text;
+  }
+
+  .copy-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    margin: 0.4rem 0.5rem 0.4rem 0;
+    background: rgba(255, 255, 255, 0.12);
+    border: none;
+    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    svg {
+      display: block;
+    }
+  }
+}

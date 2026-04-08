@@ -1,0 +1,33 @@
+// Fuse syntax highlighting classes (matching Chroma CSS class conventions)
+// Derived from tree-sitter-fuse highlights.scm
+
+.fuse-code {
+  background: $color-code-bg;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+
+  pre {
+    margin: 0;
+    padding: 0.25rem 0.5rem;
+    font-family: $font-mono;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: $color-code-text;
+  }
+
+  // Haskell-inspired light theme: muted, understated colors on light bg
+  .k   { color: #5e5086; }  // keywords: muted purple
+  .kf  { color: #5e5086; }  // keyword function: muted purple
+  .nc  { color: #8b6508; }  // type names: dark gold
+  .nf  { color: #1a6b8a; }  // function names: teal
+  .nv  { color: $color-code-text; }
+  .bp  { color: $color-code-text; }
+  .s   { color: #2e7d32; }  // strings: green
+  .mi  { color: #7b3c8d; }  // integers: purple
+  .mf  { color: #7b3c8d; }  // floats: purple
+  .c   { color: #999; font-style: italic; }  // comments: light gray
+  .o   { color: #666; }     // operators: dark gray
+  .p   { color: #999; }     // punctuation: light gray
+  .na  { color: #1a6b8a; }  // method access: teal
+}

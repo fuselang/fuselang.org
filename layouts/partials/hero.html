@@ -1,0 +1,19 @@
+<section class="hero">
+  <div class="hero-text">
+    {{ $heroLogo := (resources.Get "fuse-icon.png").Resize "160x" }}
+    <div class="hero-brand">
+      <img src="{{ $heroLogo.RelPermalink }}" alt="Fuse" class="hero-logo" width="{{ $heroLogo.Width }}" height="{{ $heroLogo.Height }}">
+      <span class="hero-title">fuse</span>
+    </div>
+    <p class="hero-tagline">Fuse is a statically typed, purely functional language. It compiles to the GRIN whole-program optimizer, producing LLVM-generated native code.</p>
+    <div class="hero-cta">
+      <a href="{{ "overview/" | absURL }}" class="btn-primary">Overview</a>
+      <a href="{{ "getting-started/" | absURL }}" class="btn-secondary">Get Started</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-code">
+      {{ .Content }}
+    </div>
+  </div>
+</section>

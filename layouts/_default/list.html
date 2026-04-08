@@ -1,0 +1,29 @@
+{{ define "main" }}
+<div class="book-toc">
+  <h1>{{ .Title }}</h1>
+  {{ with .Description }}<p class="toc-description">{{ . }}</p>{{ end }}
+  {{ .Content }}
+  <ul class="toc-chapters">
+    {{ range .Pages.ByWeight }}
+      <li class="toc-chapter">
+        <a href="{{ .RelPermalink }}">
+          <span class="chapter-num">{{ .Weight }}.</span>
+          <span class="chapter-title">{{ .Title }}</span>
+        </a>
+      </li>
+      {{ if .Pages }}
+        <ul class="toc-section">
+          {{ range .Pages.ByWeight }}
+            <li class="toc-chapter">
+              <a href="{{ .RelPermalink }}">
+                <span class="chapter-num">{{ .Parent.Weight }}.{{ .Weight }}</span>
+                <span class="chapter-title">{{ .Title }}</span>
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    {{ end }}
+  </ul>
+</div>
+{{ end }}

@@ -1,0 +1,64 @@
+// Book table of contents
+.book-toc {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+
+  h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    color: $color-text;
+  }
+
+  .toc-description {
+    font-size: 1.05rem;
+    color: $color-text-secondary;
+    margin: 0 0 2.5rem;
+    line-height: 1.6;
+  }
+
+  .toc-chapters {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toc-chapter {
+    margin-bottom: 0.25rem;
+
+    a {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      color: $color-text;
+      transition: background 0.15s;
+
+      &:hover {
+        background: $color-section-alt;
+      }
+    }
+
+    .chapter-num {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: $color-accent;
+      min-width: 2rem;
+    }
+
+    .chapter-title {
+      font-weight: 500;
+    }
+  }
+
+  .toc-section {
+    margin-left: 2.75rem;
+
+    .toc-chapter .chapter-num {
+      font-size: 0.75rem;
+    }
+  }
+}

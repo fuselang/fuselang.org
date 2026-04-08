@@ -1,0 +1,32 @@
+baseURL = "https://fuselang.github.io/fuselang-site/"
+languageCode = "en-us"
+title = "Fuse Programming Language"
+
+[params]
+  description = "A statically-typed functional language that compiles to native code through GRIN and LLVM."
+  tagline = "Expressive. Native. Clean."
+  github = "https://github.com/fuselang/fuse"
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[taxonomies]
+# Disable default taxonomies
+
+[[menu.main]]
+  name = "Get Started"
+  url = "/getting-started/"
+  weight = 1
+
+[[menu.main]]
+  name = "Overview"
+  url = "/overview/"
+  weight = 2
+
+[[menu.main]]
+  name = "GitHub"
+  url = "https://github.com/fuselang/fuse"
+  weight = 3
