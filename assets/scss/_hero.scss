@@ -97,6 +97,11 @@
     max-height: 400px;
     overflow-y: auto;
 
+    @media (max-width: $bp-tablet) {
+      max-height: none;
+      overflow-y: visible;
+    }
+
     .fuse-code {
       margin: 0;
     }
@@ -107,6 +112,12 @@
       overflow-x: auto;
       font-size: 0.85rem;
       line-height: 1.6;
+
+      @media (max-width: $bp-tablet) {
+        overflow-x: visible;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
     }
 
     code {

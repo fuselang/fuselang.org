@@ -321,6 +321,14 @@ trait Functor[A]:
 impl Functor[A] for List[A]:
     fun map[B](self, f: A -> B) -> List[B]
         List::fold_right(self, Nil[B], (h, t) => Cons(f(h), t))
+
+fun fmap[F: Functor, A, B](x: F[A], f: A -> B) -> F[B]
+    x.map(f)
+
+fun main() -> i32
+    let l = Cons(1, Cons(2, Cons(3, Nil)))
+    let l1 = fmap(l, v => v + 1)
+    0
 {{< /fuse >}}
 
 ### Default implementations
@@ -353,6 +361,58 @@ impl Monad for Option[A]:
 
 The `Option` implementation only needs to provide `unit` and `flat_map`. The `map` method is inherited from the default.
 
+### Trait bounds
+
+You can constrain generic type parameters to require a trait implementation using the `T: Trait` syntax. This ensures the function can only be called with types that implement the specified trait.
+
+{{< fuse >}}
+trait Summary:
+    fun summarize(self) -> str;
+
+type Tweet:
+    username: str
+    content: str
+
+impl Summary for Tweet:
+    fun summarize(self) -> str
+        self.username + ": " + self.content
+
+fun notify[T: Summary](s: T) -> Unit
+    print("Breaking news! " + s.summarize())
+
+fun main() -> i32
+    let tweet = Tweet("elon", "work!")
+    notify(tweet)
+    0
+{{< /fuse >}}
+
+The `[T: Summary]` syntax means `T` must implement the `Summary` trait. Calling `notify` with a type that doesn't implement `Summary` results in a compile-time error.
+
+Fuse includes built-in traits like `Add` for arithmetic operators:
+
+{{< fuse >}}
+fun add[T: Add](a: T, b: T) -> T
+    a + b
+
+fun main() -> i32
+    let result = add(2, 3)
+    print(int_to_str(result))
+    0
+{{< /fuse >}}
+
+You can also combine multiple bounds with `+`, requiring the type to implement all listed traits:
+
+{{< fuse >}}
+trait Summary:
+    fun summarize(self) -> str;
+
+trait Display:
+    fun display(self) -> str;
+
+fun to_str[T: Summary + Display](s: T) -> str
+    s.display()
+{{< /fuse >}}
+
 ## Higher-Order Functions
 
 In Fuse, functions are first-class values. They can be passed as arguments, returned from other functions, and stored in variables.
@@ -366,6 +426,38 @@ fun main() -> i32
     print(int_to_str(result))
     0
 {{< /fuse >}}
+
+### Closures
+
+Closures are anonymous functions that can reference themselves recursively. When combined with `impl` blocks, they enable expressive iteration patterns:
+
+{{< fuse >}}
+type List[A]:
+    Cons(h: A, t: List[A])
+    Nil
+
+impl List[A]:
+    fun map[B](self, f: A -> B) -> List[B]
+        let iter = (l: List[A], acc: List[B]) => {
+            match l:
+                Cons(h, t) => iter(t, Cons(f(h), acc))
+                Nil => acc
+        }
+        iter(self, Nil[B])
+
+fun main() -> i32
+    let l = Cons(2, Cons(3, Nil))
+    let l1 = l.map(v => v + 1)
+    let result = {
+        match l1:
+            Cons(h, t) => h
+            Nil => 0
+    }
+    print(int_to_str(result))
+    0
+{{< /fuse >}}
+
+The closure `iter` calls itself recursively to traverse the list, accumulating results. The closure `v => v + 1` passed to `map` is applied to each element. Closures can be both simple lambdas and recursive local functions.
 
 ### Map, filter, and fold
 

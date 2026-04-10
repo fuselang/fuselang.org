@@ -24,9 +24,12 @@ impl Functor[A] for List[A]:
     fun map[B](self, f: A -> B) -> List[B]
         List::fold(self, Nil[B], (t, h) => Cons(f(h), t))
 
+fun fmap[F: Functor, A, B](x: F[A], f: A -> B) -> F[B]
+    x.map(f)
+
 fun main() -> i32
     let l = Cons(1, Cons(2, Cons(3, Nil)))
-    let l2 = l.map(x => x * 2)
+    let l2 = fmap(l, x => x * 2)
     let s = List::sum(l2)
     print(int_to_str(s))
     0
