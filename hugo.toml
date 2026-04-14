@@ -1,7 +1,6 @@
 baseURL = "https://fuselang.org/"
 languageCode = "en-us"
 title = "Fuse Programming Language"
-relativeURLs = true
 enableRobotsTXT = true
 disableHugoGeneratorInject = true
 
